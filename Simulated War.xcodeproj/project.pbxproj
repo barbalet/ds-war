@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A0D6947235928DE00867F96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D6946235928DE00867F96 /* Assets.xcassets */; };
+		4AA0AB7E2A22C5E5006EA2D2 /* shared.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0AB7B2A22C5E4006EA2D2 /* shared.c */; };
+		4AA0AB7F2A22C5E5006EA2D2 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0AB7C2A22C5E5006EA2D2 /* draw.c */; };
+		4AA0AB872A22C5FC006EA2D2 /* battle.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0AB812A22C5FC006EA2D2 /* battle.c */; };
+		4AA0AB892A22C5FD006EA2D2 /* new_battle.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AA0AB832A22C5FC006EA2D2 /* new_battle.json */; };
+		4AA0AB8B2A22C5FD006EA2D2 /* battle.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AA0AB862A22C5FC006EA2D2 /* battle.json */; };
+		4ACF2FAD2D4DFF12004BBAC7 /* math.c in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FA82D4DFF12004BBAC7 /* math.c */; };
+		4ACF2FAE2D4DFF12004BBAC7 /* vect.c in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FAC2D4DFF12004BBAC7 /* vect.c */; };
+		4ACF2FAF2D4DFF12004BBAC7 /* object.c in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FAA2D4DFF12004BBAC7 /* object.c */; };
+		4ACF2FB02D4DFF12004BBAC7 /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FA92D4DFF12004BBAC7 /* memory.c */; };
+		4ACF2FB12D4DFF12004BBAC7 /* io.c in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FA72D4DFF12004BBAC7 /* io.c */; };
+		4ACF2FB22D4DFF12004BBAC7 /* file.c in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FA62D4DFF12004BBAC7 /* file.c */; };
+		4ACF2FB82D4DFF7D004BBAC7 /* newmac.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ACF2FB72D4DFF7D004BBAC7 /* newmac.xib */; };
+		4ACF2FB92D4DFF7D004BBAC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FB42D4DFF7D004BBAC7 /* AppDelegate.swift */; };
+		4ACF2FBA2D4DFF7D004BBAC7 /* ASShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FB62D4DFF7D004BBAC7 /* ASShared.swift */; };
+		4ACF2FBB2D4DFF7D004BBAC7 /* ASMacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FB52D4DFF7D004BBAC7 /* ASMacView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A0D6940235928DD00867F96 /* Simulated War.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simulated War.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A0D6946235928DE00867F96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A0D694B235928DE00867F96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A0D694E235928DE00867F96 /* Simulated_War.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Simulated_War.entitlements; sourceTree = "<group>"; };
+		4AA0AB7B2A22C5E4006EA2D2 /* shared.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = shared.c; path = gui/shared.c; sourceTree = "<group>"; };
+		4AA0AB7C2A22C5E5006EA2D2 /* draw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = draw.c; path = gui/draw.c; sourceTree = "<group>"; };
+		4AA0AB812A22C5FC006EA2D2 /* battle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = battle.c; path = game/battle.c; sourceTree = "<group>"; };
+		4AA0AB832A22C5FC006EA2D2 /* new_battle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = new_battle.json; path = game/new_battle.json; sourceTree = "<group>"; };
+		4AA0AB852A22C5FC006EA2D2 /* battle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = battle.h; path = game/battle.h; sourceTree = "<group>"; };
+		4AA0AB862A22C5FC006EA2D2 /* battle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = battle.json; path = game/battle.json; sourceTree = "<group>"; };
+		4ACF2FA62D4DFF12004BBAC7 /* file.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = file.c; path = "ds-apesdk/toolkit/file.c"; sourceTree = "<group>"; };
+		4ACF2FA72D4DFF12004BBAC7 /* io.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = io.c; path = "ds-apesdk/toolkit/io.c"; sourceTree = "<group>"; };
+		4ACF2FA82D4DFF12004BBAC7 /* math.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = math.c; path = "ds-apesdk/toolkit/math.c"; sourceTree = "<group>"; };
+		4ACF2FA92D4DFF12004BBAC7 /* memory.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = memory.c; path = "ds-apesdk/toolkit/memory.c"; sourceTree = "<group>"; };
+		4ACF2FAA2D4DFF12004BBAC7 /* object.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = object.c; path = "ds-apesdk/toolkit/object.c"; sourceTree = "<group>"; };
+		4ACF2FAB2D4DFF12004BBAC7 /* toolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = toolkit.h; path = "ds-apesdk/toolkit/toolkit.h"; sourceTree = "<group>"; };
+		4ACF2FAC2D4DFF12004BBAC7 /* vect.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = vect.c; path = "ds-apesdk/toolkit/vect.c"; sourceTree = "<group>"; };
+		4ACF2FB32D4DFF3F004BBAC7 /* shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = shared.h; path = "ds-apesdk/shared.h"; sourceTree = "<group>"; };
+		4ACF2FB42D4DFF7D004BBAC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "ds-apesdk/mac/AppDelegate.swift"; sourceTree = "<group>"; };
+		4ACF2FB52D4DFF7D004BBAC7 /* ASMacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ASMacView.swift; path = "ds-apesdk/mac/ASMacView.swift"; sourceTree = "<group>"; };
+		4ACF2FB62D4DFF7D004BBAC7 /* ASShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ASShared.swift; path = "ds-apesdk/mac/ASShared.swift"; sourceTree = "<group>"; };
+		4ACF2FB72D4DFF7D004BBAC7 /* newmac.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = newmac.xib; path = "ds-apesdk/mac/newmac.xib"; sourceTree = "<group>"; };
+		4AF916502D04DC4A00752E8D /* Simulated War-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Simulated War-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A0D693D235928DD00867F96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A0D6937235928DD00867F96 = {
+			isa = PBXGroup;
+			children = (
+				4ACF2FB32D4DFF3F004BBAC7 /* shared.h */,
+				4A0E8F5823F9EA630045BA17 /* toolkit */,
+				4A0E8F5723F9EA570045BA17 /* mac */,
+				4A0D69562359290500867F96 /* gui */,
+				4A0D69552359290200867F96 /* game */,
+				4A0D6942235928DD00867F96 /* Simulated War */,
+				4A0D6941235928DD00867F96 /* Products */,
+				4A0D699323592B7700867F96 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4A0D6941235928DD00867F96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A0D6940235928DD00867F96 /* Simulated War.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A0D6942235928DD00867F96 /* Simulated War */ = {
+			isa = PBXGroup;
+			children = (
+				4A0D6946235928DE00867F96 /* Assets.xcassets */,
+				4A0D694B235928DE00867F96 /* Info.plist */,
+				4A0D694E235928DE00867F96 /* Simulated_War.entitlements */,
+			);
+			path = "Simulated War";
+			sourceTree = "<group>";
+		};
+		4A0D69552359290200867F96 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0AB812A22C5FC006EA2D2 /* battle.c */,
+				4AA0AB852A22C5FC006EA2D2 /* battle.h */,
+				4AA0AB862A22C5FC006EA2D2 /* battle.json */,
+				4AA0AB832A22C5FC006EA2D2 /* new_battle.json */,
+			);
+			name = game;
+			sourceTree = "<group>";
+		};
+		4A0D69562359290500867F96 /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				4AA0AB7C2A22C5E5006EA2D2 /* draw.c */,
+				4AA0AB7B2A22C5E4006EA2D2 /* shared.c */,
+			);
+			name = gui;
+			sourceTree = "<group>";
+		};
+		4A0D699323592B7700867F96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A0E8F5723F9EA570045BA17 /* mac */ = {
+			isa = PBXGroup;
+			children = (
+				4ACF2FB42D4DFF7D004BBAC7 /* AppDelegate.swift */,
+				4ACF2FB52D4DFF7D004BBAC7 /* ASMacView.swift */,
+				4ACF2FB62D4DFF7D004BBAC7 /* ASShared.swift */,
+				4ACF2FB72D4DFF7D004BBAC7 /* newmac.xib */,
+				4AF916502D04DC4A00752E8D /* Simulated War-Bridging-Header.h */,
+			);
+			name = mac;
+			sourceTree = "<group>";
+		};
+		4A0E8F5823F9EA630045BA17 /* toolkit */ = {
+			isa = PBXGroup;
+			children = (
+				4ACF2FA62D4DFF12004BBAC7 /* file.c */,
+				4ACF2FA72D4DFF12004BBAC7 /* io.c */,
+				4ACF2FA82D4DFF12004BBAC7 /* math.c */,
+				4ACF2FA92D4DFF12004BBAC7 /* memory.c */,
+				4ACF2FAA2D4DFF12004BBAC7 /* object.c */,
+				4ACF2FAB2D4DFF12004BBAC7 /* toolkit.h */,
+				4ACF2FAC2D4DFF12004BBAC7 /* vect.c */,
+			);
+			name = toolkit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A0D693F235928DD00867F96 /* Simulated War */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A0D6951235928DE00867F96 /* Build configuration list for PBXNativeTarget "Simulated War" */;
+			buildPhases = (
+				4A0D693C235928DD00867F96 /* Sources */,
+				4A0D693D235928DD00867F96 /* Frameworks */,
+				4A0D693E235928DD00867F96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Simulated War";
+			productName = "Simulated War";
+			productReference = 4A0D6940235928DD00867F96 /* Simulated War.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A0D6938235928DD00867F96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				ORGANIZATIONNAME = "Thomas Barbalet";
+				TargetAttributes = {
+					4A0D693F235928DD00867F96 = {
+						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1610;
+					};
+				};
+			};
+			buildConfigurationList = 4A0D693B235928DD00867F96 /* Build configuration list for PBXProject "Simulated War" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A0D6937235928DD00867F96;
+			productRefGroup = 4A0D6941235928DD00867F96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A0D693F235928DD00867F96 /* Simulated War */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A0D693E235928DD00867F96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ACF2FB82D4DFF7D004BBAC7 /* newmac.xib in Resources */,
+				4AA0AB892A22C5FD006EA2D2 /* new_battle.json in Resources */,
+				4A0D6947235928DE00867F96 /* Assets.xcassets in Resources */,
+				4AA0AB8B2A22C5FD006EA2D2 /* battle.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A0D693C235928DD00867F96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ACF2FAD2D4DFF12004BBAC7 /* math.c in Sources */,
+				4ACF2FAE2D4DFF12004BBAC7 /* vect.c in Sources */,
+				4ACF2FAF2D4DFF12004BBAC7 /* object.c in Sources */,
+				4ACF2FB02D4DFF12004BBAC7 /* memory.c in Sources */,
+				4ACF2FB12D4DFF12004BBAC7 /* io.c in Sources */,
+				4ACF2FB22D4DFF12004BBAC7 /* file.c in Sources */,
+				4AA0AB7F2A22C5E5006EA2D2 /* draw.c in Sources */,
+				4AA0AB872A22C5FC006EA2D2 /* battle.c in Sources */,
+				4ACF2FB92D4DFF7D004BBAC7 /* AppDelegate.swift in Sources */,
+				4ACF2FBA2D4DFF7D004BBAC7 /* ASShared.swift in Sources */,
+				4ACF2FBB2D4DFF7D004BBAC7 /* ASMacView.swift in Sources */,
+				4AA0AB7E2A22C5E5006EA2D2 /* shared.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4A0D694F235928DE00867F96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "WARFARE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4A0D6950235928DE00867F96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "WARFARE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4A0D6952235928DE00867F96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Simulated War/Simulated_War.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Simulated War/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.apesdk.Simulated-War";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Simulated War-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		4A0D6953235928DE00867F96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Simulated War/Simulated_War.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Simulated War/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.apesdk.Simulated-War";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Simulated War-Bridging-Header.h";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A0D693B235928DD00867F96 /* Build configuration list for PBXProject "Simulated War" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A0D694F235928DE00867F96 /* Debug */,
+				4A0D6950235928DE00867F96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A0D6951235928DE00867F96 /* Build configuration list for PBXNativeTarget "Simulated War" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A0D6952235928DE00867F96 /* Debug */,
+				4A0D6953235928DE00867F96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A0D6938235928DD00867F96 /* Project object */;
+}

@@ -1,0 +1,207 @@
+{
+  "general_variables" : {
+    "random0" : 58668,
+    "random1" : 8717,
+    "attack_melee_dsq" : 5,
+    "declare_group_facing_dsq" : 8000,
+    "declare_max_start_dsq" : 65535,
+    "declare_one_to_one_dsq" : 65535,
+    "declare_close_enough_dsq" : 5
+  },
+  "armies" : [
+      "prussia",
+      "saxony"
+  ],
+  "weapons" : [
+      {
+          "name" : "nothing",
+          "damage" : 0,
+          "piercing": 0,
+          "range" : 0
+      },
+      {
+          "name" : "sword",
+          "damage" : 3,
+          "piercing": 1,
+          "range" : 0
+      },
+      {
+          "name" : "shortbow",
+          "damage" : 4,
+          "piercing": 1,
+          "range" : 40
+      },
+      {
+          "name" : "mace",
+          "damage" : 2,
+          "piercing": 2,
+          "range" : 0
+      },
+      {
+          "name" : "warhammer",
+          "damage" : 1,
+          "piercing": 3,
+          "range" : 0
+      }
+  ],
+  "unit_types" : [
+    {
+      "armor" : 4,
+      "melee_attack" : 6,
+      "melee_weapon" : "sword",
+      "missile_attack" : 3,
+      "missile_weapon" : "shortbow",
+      "missile_rate" : 100,
+      "name" : "ranger",
+      "speed_maximum" : 3,
+      "stature" : 4,
+      "leadership" : 2,
+      "wounds_per_combatant" : 3
+    },
+    {
+      "armor" : 4,
+      "melee_attack" : 6,
+      "melee_weapon" : "mace",
+      "missile_attack" : 0,
+      "missile_weapon" : "nothing",
+      "missile_rate" : 0,
+      "name" : "mounted knight",
+      "speed_maximum" : 6,
+      "stature" : 2,
+      "leadership" : 4,
+      "wounds_per_combatant" : 3
+    },
+    {
+      "armor" : 2,
+      "melee_attack" : 7,
+      "melee_weapon" : "warhammer",
+      "missile_attack" : 0,
+      "missile_weapon" : "nothing",
+      "missile_rate" : 0,
+      "name" : "light cavalry",
+      "speed_maximum" : 7,
+      "stature" : 2,
+      "leadership" : 3,
+      "wounds_per_combatant" : 1
+    }
+  ],
+  "units" : [
+    {
+      "type" : "ranger",
+      "width" : 28,
+      "average" : [
+        100,
+        200
+      ],
+      "angle" : 120,
+      "name" : "first",
+      "number_combatants" : 480,
+      "alignment" : "prussia",
+      "missile_number" : 20
+    },
+    {
+      "type" : "ranger",
+      "width" : 28,
+      "average" : [
+        100,
+        400
+      ],
+      "angle" : 128,
+      "name" : "second",
+      "number_combatants" : 480,
+      "alignment" : "prussia",
+      "missile_number" : 20
+    },
+    {
+      "type" : "ranger",
+      "width" : 28,
+      "average" : [
+        100,
+        600
+      ],
+      "angle" : 136,
+      "name" : "third",
+      "number_combatants" : 480,
+      "alignment" : "prussia",
+      "missile_number" : 20
+    },
+    {
+      "type" : "mounted knight",
+      "width" : 10,
+      "average" : [
+        250,
+        400
+      ],
+      "angle" : 128,
+      "name" : "lowland",
+      "number_combatants" : 100,
+      "alignment" : "prussia",
+      "missile_number" : 0
+    },
+    {
+      "type" : "mounted knight",
+      "width" : 10,
+      "average" : [
+        265,
+        200
+      ],
+      "angle" : 128,
+      "name" : "highland",
+      "number_combatants" : 100,
+      "alignment" : "prussia",
+      "missile_number" : 0
+    },
+    {
+      "type" : "ranger",
+      "width" : 50,
+      "average" : [
+        500,
+        200
+      ],
+      "angle" : 0,
+      "name" : "first",
+      "number_combatants" : 600,
+      "alignment" : "saxony",
+      "missile_number" : 20
+    },
+    {
+      "type" : "mounted knights",
+      "width" : 35,
+      "average" : [
+        500,
+        600
+      ],
+      "angle" : 0,
+      "name" : "swithbor",
+      "number_combatants" : 100,
+      "alignment" : "saxony",
+      "missile_number" : 0
+    },
+    {
+      "type" : "ranger",
+      "width" : 40,
+      "average" : [
+        700,
+        600
+      ],
+      "angle" : 0,
+      "name" : "second",
+      "number_combatants" : 600,
+      "alignment" : "saxony",
+      "missile_number" : 20
+    },
+    {
+      "type" : "light cavalry",
+      "width" : 40,
+      "average" : [
+        600,
+        600
+      ],
+      "angle" : 0,
+      "name" : "horac",
+      "number_combatants" : 200,
+      "alignment" : "saxony",
+      "missile_number" : 0
+    }
+  ]
+}
