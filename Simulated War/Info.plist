@@ -44,7 +44,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright 1996-2024 Tom Barbalet. All rights reserved.</string>
+	<string>Copyright 1996-2025 Tom Barbalet. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>newmac</string>
 	<key>NSPrincipalClass</key>
