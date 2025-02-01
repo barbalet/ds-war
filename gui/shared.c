@@ -71,9 +71,11 @@ void shared_dimensions(n_int * dimensions)
 
 shared_cycle_state shared_cycle(n_uint ticks, n_int fIdentification)
 {
-    if (simulation_started)
-        engine_update();
-
+    if (simulation_started) {
+        if (engine_update()) {
+            return SHARED_CYCLE_QUIT;
+        }
+    }
     return SHARED_CYCLE_OK;
 }
 

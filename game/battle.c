@@ -1334,6 +1334,7 @@ n_int engine_update(void)
         {
             printf("engine_over\n");
             engine_scorecard();
+            return 1;
             return engine_new();
         }
         engine_cycle();
