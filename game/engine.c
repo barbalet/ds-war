@@ -36,11 +36,7 @@
 
 #include <stdio.h>
 
-#ifdef    _WIN32
 #include "toolkit.h"
-#else
-#include "toolkit.h"
-#endif
 
 #include "battle.h"
 

@@ -128,8 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				4AA0AB812A22C5FC006EA2D2 /* battle.c */,
-				4A1BB8882D4F3162005D8811 /* engine.c */,
 				4AA0AB852A22C5FC006EA2D2 /* battle.h */,
+				4A1BB8882D4F3162005D8811 /* engine.c */,
 				4A1BB8862D4F270E005D8811 /* misc.c */,
 				4A1BB8832D4F2618005D8811 /* board.c */,
 				4AA0AB862A22C5FC006EA2D2 /* battle.json */,
