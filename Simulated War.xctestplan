@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "12C73196-BCD1-4271-921F-AF814D2CB68E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Simulated War.xcodeproj",
+      "identifier" : "4A0D693F235928DD00867F96",
+      "name" : "Simulated War"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Simulated War.xcodeproj",
+        "identifier" : "4A66D6152D4EC6F8005426BF",
+        "name" : "Simulated WarUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
