@@ -1,3 +1,8 @@
+Day 2: Investigation Deep Seek and Simulated War (Feb 2, 2025)
+
+I was able to get the battle.c converted today after a lot of outage delays and code that wouldn't build. I am yet to go through the morale code re-write or the use of formations which will dramatically change the simulation but looking forward to it. The general simplification of the code needs probably to distinguish between the unit and the combatant. More on this in the next few days hopefully.
+
+
 Day 1: Investigation Deep Seek and Simulated War (Feb 1, 2025)
 
-Preference for 500 lines or less source code. 700 lines create small problems. 1200-1600 lines are a bridge too far. Ask for reductions around these files. How DS wants them divided. Good feedback on what DS would like changed around morale and other elements. Quite refreshing but very time consuming. The local version doesn't work particularly well. All the major breakthroughs happening on the online version although time outs and busy responses plagued the day. Reflecting that the code line restrictions noted are probably best for these forced reduced elements. Debating doing it backwards at some stage and getting DS to author the entire thing though feature segments.
+DeepSeek has a preference for 500 lines or less source code. 700 lines create small problems. 1200-1600 lines are a bridge too far. Ask for reductions around these files. How DS wants them divided. Good feedback on what DS would like changed around morale and other elements. Quite refreshing but very time consuming. The local version doesn't work particularly well. All the major breakthroughs happening on the online version although time outs and busy responses plagued the day. Reflecting that the code line restrictions noted are probably best for these forced reduced elements. Debating doing it backwards at some stage and getting DS to author the entire thing through feature segments.
