@@ -210,7 +210,8 @@ n_byte	board_add(n_vect2 * pt, n_byte color);
 n_byte	board_move(n_vect2 * fr, n_vect2 * pt);
 
 
-
+void mem_init(n_byte start);
+n_byte * mem_use(n_uint size);
 
 
 

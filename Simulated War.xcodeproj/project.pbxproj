@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4A0D6947235928DE00867F96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D6946235928DE00867F96 /* Assets.xcassets */; };
+		4A1BB8842D4F2618005D8811 /* board.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BB8832D4F2618005D8811 /* board.c */; };
+		4A1BB8872D4F270E005D8811 /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BB8862D4F270E005D8811 /* misc.c */; };
+		4A1BB8892D4F3162005D8811 /* engine.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BB8882D4F3162005D8811 /* engine.c */; };
 		4AA0AB7E2A22C5E5006EA2D2 /* shared.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0AB7B2A22C5E4006EA2D2 /* shared.c */; };
 		4AA0AB7F2A22C5E5006EA2D2 /* draw.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0AB7C2A22C5E5006EA2D2 /* draw.c */; };
 		4AA0AB872A22C5FC006EA2D2 /* battle.c in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0AB812A22C5FC006EA2D2 /* battle.c */; };
@@ -40,6 +43,9 @@
 		4A0D6946235928DE00867F96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A0D694B235928DE00867F96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A0D694E235928DE00867F96 /* Simulated_War.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Simulated_War.entitlements; sourceTree = "<group>"; };
+		4A1BB8832D4F2618005D8811 /* board.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = board.c; path = game/board.c; sourceTree = "<group>"; };
+		4A1BB8862D4F270E005D8811 /* misc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = misc.c; path = game/misc.c; sourceTree = "<group>"; };
+		4A1BB8882D4F3162005D8811 /* engine.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = engine.c; path = game/engine.c; sourceTree = "<group>"; };
 		4A66D6162D4EC6F8005426BF /* Simulated WarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simulated WarUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA0AB7B2A22C5E4006EA2D2 /* shared.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = shared.c; path = gui/shared.c; sourceTree = "<group>"; };
 		4AA0AB7C2A22C5E5006EA2D2 /* draw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = draw.c; path = gui/draw.c; sourceTree = "<group>"; };
@@ -122,7 +128,10 @@
 			isa = PBXGroup;
 			children = (
 				4AA0AB812A22C5FC006EA2D2 /* battle.c */,
+				4A1BB8882D4F3162005D8811 /* engine.c */,
 				4AA0AB852A22C5FC006EA2D2 /* battle.h */,
+				4A1BB8862D4F270E005D8811 /* misc.c */,
+				4A1BB8832D4F2618005D8811 /* board.c */,
 				4AA0AB862A22C5FC006EA2D2 /* battle.json */,
 				4AA0AB832A22C5FC006EA2D2 /* new_battle.json */,
 			);
@@ -283,9 +292,12 @@
 				4ACF2FAD2D4DFF12004BBAC7 /* math.c in Sources */,
 				4ACF2FAE2D4DFF12004BBAC7 /* vect.c in Sources */,
 				4ACF2FAF2D4DFF12004BBAC7 /* object.c in Sources */,
+				4A1BB8842D4F2618005D8811 /* board.c in Sources */,
 				4ACF2FB02D4DFF12004BBAC7 /* memory.c in Sources */,
 				4ACF2FB12D4DFF12004BBAC7 /* io.c in Sources */,
 				4ACF2FB22D4DFF12004BBAC7 /* file.c in Sources */,
+				4A1BB8872D4F270E005D8811 /* misc.c in Sources */,
+				4A1BB8892D4F3162005D8811 /* engine.c in Sources */,
 				4AA0AB7F2A22C5E5006EA2D2 /* draw.c in Sources */,
 				4AA0AB872A22C5FC006EA2D2 /* battle.c in Sources */,
 				4ACF2FB92D4DFF7D004BBAC7 /* AppDelegate.swift in Sources */,
