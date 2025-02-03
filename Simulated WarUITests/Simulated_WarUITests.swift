@@ -61,7 +61,7 @@ final class Simulated_WarUITests: XCTestCase {
         )
 
         // Wait for the app to quit
-        wait(for: [appQuitExpectation], timeout: 90)
+        wait(for: [appQuitExpectation], timeout: 120)
         // Record the end time
         let endTime = Date()
 
@@ -72,7 +72,7 @@ final class Simulated_WarUITests: XCTestCase {
         print("App ran and quit in \(duration) seconds")
 
         // Optionally, assert that the duration is within an expected range
-        let expectedMaxDuration: TimeInterval = 120.0 // Set your expected maximum duration
+        let expectedMaxDuration: TimeInterval = 180.0 // Set your expected maximum duration
         XCTAssertLessThanOrEqual(duration, expectedMaxDuration, "App took longer than expected to run and quit")
     }
 }

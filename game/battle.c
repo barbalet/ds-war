@@ -255,8 +255,9 @@ void battle_attack(n_unit *un, n_general_variables *gvar) {
     n_type *typ_at = un_at->unit_type;
     comb_at = un_at->combatants;
 
-    additional_variables.probability_melee = (typ->melee_attack) * (16 - (typ_at->defence) + (typ->melee_armpie));
-    additional_variables.probability_missile = (typ->missile_attack) * (16 - (typ_at->defence) + (typ->missile_armpie));
+    // Normalize the probability calculation to ensure fairness
+    additional_variables.probability_melee = (typ->melee_attack * (16 - typ_at->defence)) / 16;
+    additional_variables.probability_missile = (typ->missile_attack * (16 - typ_at->defence)) / 16;
     additional_variables.damage_melee = typ->melee_damage;
     additional_variables.damage_missile = typ->missile_damage;
     additional_variables.speed_max = typ->speed_maximum;
@@ -408,9 +409,19 @@ static void combatant_move(n_combatant *comb, n_general_variables *gvar, void *v
     vect2_direction(&facing, local_facing, 1);
     vect2_d(&temp_location, &facing, local_speed, 26880);
 
+    // Check if the combatant is fleeing
+    n_byte is_fleeing = (comb->attacking == NUNIT_NO_ATTACK && comb->wounds < 50); // Example condition for fleeing
+
     if (OUTSIDE_HEIGHT(temp_location.y) || OUTSIDE_WIDTH(temp_location.x)) {
-        combatant_dead(comb);
-        return;
+        if (is_fleeing) {
+            // Combatant is fleeing and has left the board; mark as dead and remove from the board
+            combatant_dead(comb);
+            board_clear(&comb->location);
+            return;
+        } else {
+            // Combatant is not fleeing; prevent them from leaving the board
+            temp_location = old_location; // Reset to the old location
+        }
     }
 
     if (old_location.x != temp_location.x || old_location.y != temp_location.y) {
