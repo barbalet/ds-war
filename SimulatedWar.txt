@@ -1,3 +1,7 @@
+Day 2.5: Continued (Feb 2, 2025)
+
+Asked for a rewrite of battle due to an imbalance and left it to fix a couple of issues - weapons versus armor and movement with an idea of fleeing. Very nice results and a new vision of play.
+
 Day 2: Investigation Deep Seek and Simulated War (Feb 2, 2025)
 
 I was able to get the battle.c converted today after a lot of outage delays and code that wouldn't build. I am yet to go through the morale code re-write or the use of formations which will dramatically change the simulation but looking forward to it. The general simplification of the code needs probably to distinguish between the unit and the combatant. More on this in the next few days hopefully.
