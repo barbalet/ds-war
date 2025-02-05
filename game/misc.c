@@ -36,12 +36,7 @@
 
 #include <stdio.h>
 
-#ifdef    _WIN32
 #include "toolkit.h"
-#else
-#include "toolkit.h"
-#endif
-
 #include "battle.h"
 
 #define BATTLE_JSON_LOCATION1 "./Simulated War.app/Contents/Resources/battle.json"
