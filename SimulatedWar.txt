@@ -1,3 +1,7 @@
+Day 3: Continued (Feb 3, 2025)
+
+Late night reformatting around engine.c. Exposing a DS big where the units would no longer move. Following some iterations that bug is no longer an issue. Reformatting misc.c and updating all the copyrights to be for ApeSDK development.
+
 Day 2.5: Continued (Feb 2, 2025)
 
 Asked for a rewrite of battle due to an imbalance and left it to fix a couple of issues - weapons versus armor and movement with an idea of fleeing. Very nice results and a new vision of play.
