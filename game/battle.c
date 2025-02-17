@@ -87,7 +87,7 @@ void combatant_loop(combatant_function func, n_unit *un, n_general_variables *gv
     n_combatant *combatant = (n_combatant *)(un->combatants);
     n_byte2 loop = 0;
     while (loop < un->number_combatants) {
-        (*func)(&combatant[loop++], gvar, values);
+        (*func)(&combatant[loop++], gvar, values); // <-- Pass values to func
     }
 }
 
@@ -439,23 +439,23 @@ static void combatant_move(n_combatant *comb, n_general_variables *gvar, void *v
         return;
     }
 
-    local_facing = combatant_random_facing(local_facing, gvar);
+    // Move toward the attacker if one is set
+    if (comb->attacking != NUNIT_NO_ATTACK && values != NOTHING) { // <-- Add check for NOTHING
+        n_unit *un = (n_unit *)values;
+        n_unit *un_at = un->unit_attacking;
+        if (un_at != NOTHING) {
+            n_combatant *comb_at = un_at->combatants;
+            n_vect2 delta;
+            vect2_subtract(&delta, &comb_at[comb->attacking].location, &comb->location);
+            local_facing = math_tan(&delta);
+        }
+    }
+
     vect2_direction(&facing, local_facing, 1);
     vect2_d(&temp_location, &facing, local_speed, 26880);
 
-    // Check if the combatant is fleeing
-    n_byte is_fleeing = (comb->attacking == NUNIT_NO_ATTACK && comb->wounds < 50); // Example condition for fleeing
-
     if (OUTSIDE_HEIGHT(temp_location.y) || OUTSIDE_WIDTH(temp_location.x)) {
-        if (is_fleeing) {
-            // Combatant is fleeing and has left the board; mark as dead and remove from the board
-            combatant_dead(comb);
-            board_clear(&comb->location);
-            return;
-        } else {
-            // Combatant is not fleeing; prevent them from leaving the board
-            temp_location = old_location; // Reset to the old location
-        }
+        temp_location = old_location;
     }
 
     if (old_location.x != temp_location.x || old_location.y != temp_location.y) {
@@ -463,7 +463,7 @@ static void combatant_move(n_combatant *comb, n_general_variables *gvar, void *v
             vect2_copy(&comb->location, &temp_location);
         }
     }
-    
+
     comb->direction_facing = (n_byte)local_facing;
     comb->speed_current = (n_byte)local_speed;
 }
@@ -472,7 +472,7 @@ static void combatant_move(n_combatant *comb, n_general_variables *gvar, void *v
  * Moves all combatants in a unit.
  */
 void battle_move(n_unit *un, n_general_variables *gvar) {
-    combatant_loop(&combatant_move, un, gvar, NOTHING);
+    combatant_loop(&combatant_move, un, gvar, (void *)un); // <-- Pass the current unit as values
     battle_area(un);
 }
 
