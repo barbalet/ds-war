@@ -87,10 +87,6 @@ void shared_close(void) {
     engine_exit();
 }
 
-n_int shared_menu(n_int menuValue) {
-    return 0;
-}
-
 void shared_delta(n_double delta_x, n_double delta_y, n_int wwind) {
     draw_dpx(delta_x);
     draw_dpy(delta_y);
@@ -117,7 +113,7 @@ void shared_keyUp(void) {
     key_pressed = -1;
 }
 
-void shared_mouseOption(n_byte option) {
+void shared_mouseOption(n_byte option) {    
     // Functionality not implemented
 }
 

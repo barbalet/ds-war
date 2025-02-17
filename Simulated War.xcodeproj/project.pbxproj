@@ -23,9 +23,8 @@
 		4ACF2FB12D4DFF12004BBAC7 /* io.c in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FA72D4DFF12004BBAC7 /* io.c */; };
 		4ACF2FB22D4DFF12004BBAC7 /* file.c in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FA62D4DFF12004BBAC7 /* file.c */; };
 		4ACF2FB82D4DFF7D004BBAC7 /* newmac.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ACF2FB72D4DFF7D004BBAC7 /* newmac.xib */; };
-		4ACF2FB92D4DFF7D004BBAC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FB42D4DFF7D004BBAC7 /* AppDelegate.swift */; };
-		4ACF2FBA2D4DFF7D004BBAC7 /* ASShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FB62D4DFF7D004BBAC7 /* ASShared.swift */; };
-		4ACF2FBB2D4DFF7D004BBAC7 /* ASMacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FB52D4DFF7D004BBAC7 /* ASMacView.swift */; };
+		4ACF2FB92D4DFF7D004BBAC7 /* DSAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FB42D4DFF7D004BBAC7 /* DSAppDelegate.swift */; };
+		4ACF2FBB2D4DFF7D004BBAC7 /* DSMacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACF2FB52D4DFF7D004BBAC7 /* DSMacView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +60,8 @@
 		4ACF2FAB2D4DFF12004BBAC7 /* toolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = toolkit.h; path = "ds-apesdk/toolkit/toolkit.h"; sourceTree = "<group>"; };
 		4ACF2FAC2D4DFF12004BBAC7 /* vect.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = vect.c; path = "ds-apesdk/toolkit/vect.c"; sourceTree = "<group>"; };
 		4ACF2FB32D4DFF3F004BBAC7 /* shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = shared.h; path = "ds-apesdk/shared.h"; sourceTree = "<group>"; };
-		4ACF2FB42D4DFF7D004BBAC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "ds-apesdk/mac/AppDelegate.swift"; sourceTree = "<group>"; };
-		4ACF2FB52D4DFF7D004BBAC7 /* ASMacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ASMacView.swift; path = "ds-apesdk/mac/ASMacView.swift"; sourceTree = "<group>"; };
-		4ACF2FB62D4DFF7D004BBAC7 /* ASShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ASShared.swift; path = "ds-apesdk/mac/ASShared.swift"; sourceTree = "<group>"; };
+		4ACF2FB42D4DFF7D004BBAC7 /* DSAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DSAppDelegate.swift; path = "ds-apesdk/mac/DSAppDelegate.swift"; sourceTree = "<group>"; };
+		4ACF2FB52D4DFF7D004BBAC7 /* DSMacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DSMacView.swift; path = "ds-apesdk/mac/DSMacView.swift"; sourceTree = "<group>"; };
 		4ACF2FB72D4DFF7D004BBAC7 /* newmac.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = newmac.xib; path = "ds-apesdk/mac/newmac.xib"; sourceTree = "<group>"; };
 		4AF916502D04DC4A00752E8D /* Simulated War-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Simulated War-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,9 +155,8 @@
 		4A0E8F5723F9EA570045BA17 /* mac */ = {
 			isa = PBXGroup;
 			children = (
-				4ACF2FB42D4DFF7D004BBAC7 /* AppDelegate.swift */,
-				4ACF2FB52D4DFF7D004BBAC7 /* ASMacView.swift */,
-				4ACF2FB62D4DFF7D004BBAC7 /* ASShared.swift */,
+				4ACF2FB42D4DFF7D004BBAC7 /* DSAppDelegate.swift */,
+				4ACF2FB52D4DFF7D004BBAC7 /* DSMacView.swift */,
 				4ACF2FB72D4DFF7D004BBAC7 /* newmac.xib */,
 				4AF916502D04DC4A00752E8D /* Simulated War-Bridging-Header.h */,
 			);
@@ -300,9 +297,8 @@
 				4A1BB8892D4F3162005D8811 /* engine.c in Sources */,
 				4AA0AB7F2A22C5E5006EA2D2 /* draw.c in Sources */,
 				4AA0AB872A22C5FC006EA2D2 /* battle.c in Sources */,
-				4ACF2FB92D4DFF7D004BBAC7 /* AppDelegate.swift in Sources */,
-				4ACF2FBA2D4DFF7D004BBAC7 /* ASShared.swift in Sources */,
-				4ACF2FBB2D4DFF7D004BBAC7 /* ASMacView.swift in Sources */,
+				4ACF2FB92D4DFF7D004BBAC7 /* DSAppDelegate.swift in Sources */,
+				4ACF2FBB2D4DFF7D004BBAC7 /* DSMacView.swift in Sources */,
 				4AA0AB7E2A22C5E5006EA2D2 /* shared.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

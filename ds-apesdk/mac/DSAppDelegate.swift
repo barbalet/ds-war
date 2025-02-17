@@ -1,11 +1,11 @@
 /****************************************************************
- 
-ASMacCG.h
- 
+
+ AppDelegate.swift
+
  =============================================================
- 
- Copyright 1996-2024 Tom Barbalet. All rights reserved.
- 
+
+ Copyright 1996-2025 Tom Barbalet. All rights reserved.
+
  Permission is hereby granted, free of charge, to any person
  obtaining a copy of this software and associated documentation
  files (the "Software"), to deal in the Software without
@@ -14,10 +14,10 @@ ASMacCG.h
  sell copies of the Software, and to permit persons to whom the
  Software is furnished to do so, subject to the following
  conditions:
- 
+
  The above copyright notice and this permission notice shall be
  included in all copies or substantial portions of the Software.
- 
+
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -26,25 +26,29 @@ ASMacCG.h
  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  OTHER DEALINGS IN THE SOFTWARE.
- 
+
  This software is a continuing work of Tom Barbalet, begun on
  13 June 1996. No apes or cats were harmed in the writing of
  this software.
- 
+
  ****************************************************************/
 
-#import <Cocoa/Cocoa.h>
+import Cocoa
 
-#import "ASShared.h"
+//@NSApplicationMain
+@main
+class AppDelegate: NSObject, NSApplicationDelegate {
+    @IBOutlet weak var window: NSWindow!
 
-#include "../toolkit/toolkit.h"
-#include "../shared.h"
-
-@interface ASMacCG : NSView
-
-@property (nonatomic, strong) ASShared* shared;
-
-- (void) drawRect:(NSRect)rect;
-- (void) quitProcedure;
-
-@end
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // Insert code here to initialize your application
+        let menu = NSMenu()
+        let appleMenuItem = menu.item(withTitle: "")
+        appleMenuItem?.isHidden = false
+        menu.update()
+    }
+    
+    func applicationWillTerminate(_ aNotification: Notification) {
+        // Insert code here to tear down your application
+    }
+}
