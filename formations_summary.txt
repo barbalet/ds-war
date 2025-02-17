@@ -1,0 +1,254 @@
+To add formations (`RECTANGLE`, `TRIANGLE`, `SKIRMISH`, `WEDGE`, `COLUMN`, and `PHALANX`) at the unit-type level and transfer these values to individual units, we need to modify the following files:
+
+### 1. **battle.h**
+   - Add an enumeration for formations.
+   - Add a formation field to the `n_type` and `n_unit` structs.
+
+```c
+// Add this enumeration for formations
+typedef enum {
+    FORMATION_RECTANGLE,
+    FORMATION_TRIANGLE,
+    FORMATION_SKIRMISH,
+    FORMATION_WEDGE,
+    FORMATION_COLUMN,
+    FORMATION_PHALANX
+} n_formation;
+
+// Add formation to the n_type struct
+typedef struct n_type {
+    n_byte  defence;
+    n_byte  melee_attack;
+    n_byte  melee_damage;
+    n_byte  melee_armpie;
+
+    n_byte  missile_attack;
+    n_byte  missile_damage;
+    n_byte  missile_armpie;
+    n_byte  missile_rate;
+
+    n_byte2 missile_range;
+    n_byte  speed_maximum;
+    n_byte  stature;
+    n_byte  leadership;
+
+    n_byte  wounds_per_combatant;
+    n_byte  points_per_combatant;
+    n_formation formation; // Add formation type
+} n_type;
+
+// Add formation to the n_unit struct
+typedef struct n_unit {
+    n_byte  morale;
+    n_byte  angle;
+
+    n_byte2 average[2];
+
+    n_byte2 width;
+    n_byte2 number_combatants;
+
+    n_byte  alignment;
+    n_byte  missile_number;
+
+    n_byte  missile_timer;
+    n_byte2 number_living;
+    
+    n_area2 area;
+    n_byte  selected;
+    
+    void *unit_type;
+    void *combatants;
+    void *unit_attacking;
+    n_formation formation; // Add formation type
+} n_unit;
+```
+
+### 2. **misc.c**
+   - Update the `obj_unit_type` function to include the formation when parsing the JSON file.
+   - Update the `engine_conditions` function to transfer the formation from the unit type to the unit.
+
+```c
+// Update obj_unit_type to include formation
+static n_object *obj_unit_type(n_type *values) {
+    n_object *return_object = object_number(0L, "defence", values->defence);
+    object_number(return_object, "melee_attack", values->melee_attack);
+    object_number(return_object, "melee_damage", values->melee_damage);
+    object_number(return_object, "melee_armpie", values->melee_armpie);
+    object_number(return_object, "missile_attack", values->missile_attack);
+    object_number(return_object, "missile_damage", values->missile_damage);
+    object_number(return_object, "missile_armpie", values->missile_armpie);
+    object_number(return_object, "missile_rate", values->missile_rate);
+    object_number(return_object, "missile_range", values->missile_range);
+    object_number(return_object, "speed_maximum", values->speed_maximum);
+    object_number(return_object, "stature", values->stature);
+    object_number(return_object, "leadership", values->leadership);
+    object_number(return_object, "wounds_per_combatant", values->wounds_per_combatant);
+    object_number(return_object, "type_id", values->points_per_combatant);
+    object_number(return_object, "formation", values->formation); // Add formation
+    return return_object;
+}
+
+// Update engine_conditions to transfer formation from type to unit
+n_int engine_conditions(n_file *file_json) {
+    // ... (existing code)
+
+    if (str_unit_types) {
+        n_array *arr_unit_types = obj_get_array(str_unit_types);
+        n_array *arr_follow = 0L;
+        n_int value;
+        types = (n_type *)mem_use(0);
+        while ((arr_follow = obj_array_next(arr_unit_types, arr_follow))) {
+            n_object *obj_follow = obj_get_object(arr_follow->data);
+            n_type *current_type = &types[number_types];
+            // ... (existing code)
+
+            if (obj_contains_number(obj_follow, "formation", &value)) {
+                current_type->formation = (n_formation)value; // Set formation from JSON
+            }
+
+            // ... (existing code)
+        }
+    }
+
+    // ... (existing code)
+
+    while (loop < number_units) {
+        n_byte2 local_combatants = units[loop].number_combatants;
+        units[loop].unit_type = &types[resolve[units[loop].morale]];
+        units[loop].formation = types[resolve[units[loop].morale]].formation; // Transfer formation to unit
+        units[loop].morale = 255;
+        units[loop].number_living = local_combatants;
+        units[loop].combatants = (n_combatant *)mem_use(sizeof(n_combatant) * local_combatants);
+        check_alignment[(units[loop].alignment) & 1]++;
+        loop++;
+    }
+
+    // ... (existing code)
+}
+```
+
+### 3. **battle.c**
+   - Update the `battle_fill` function to handle different formations when placing units on the board.
+   - Add logic to change formations during the battle based on circumstances.
+
+```c
+// Update battle_fill to handle formations
+void battle_fill(n_unit *un, n_general_variables *gvar) {
+    battle_fill_struct local_bfs;
+    n_int dx = (UNIT_SIZE(un) + 2) / 2;
+    n_int dy = (UNIT_SIZE(un) + 3) / 2;
+    n_int loc_angle = un->angle;
+    n_int loc_order = UNIT_ORDER(un);
+    n_int loc_height;
+    n_vect2 facing;
+
+    local_bfs.loc_wounds = GET_TYPE(un)->wounds_per_combatant;
+    local_bfs.color = battle_alignment_color(un);
+    local_bfs.loc_width = un->width;
+    local_bfs.line = 0;
+    local_bfs.px = (n_vect2){0, 0};
+    local_bfs.py = (n_vect2){0, 0};
+
+    vect2_direction(&facing, loc_angle, 16);
+
+    // Adjust formation based on unit type
+    switch (un->formation) {
+        case FORMATION_RECTANGLE:
+            // Default rectangle formation
+            break;
+        case FORMATION_TRIANGLE:
+            // Adjust for triangle formation
+            dx = (UNIT_SIZE(un) + 1) / 2;
+            dy = (UNIT_SIZE(un) + 1) / 2;
+            break;
+        case FORMATION_SKIRMISH:
+            // Adjust for skirmish formation
+            dx = (UNIT_SIZE(un) + 3) / 2;
+            dy = (UNIT_SIZE(un) + 3) / 2;
+            break;
+        case FORMATION_WEDGE:
+            // Adjust for wedge formation
+            dx = (UNIT_SIZE(un) + 2) / 2;
+            dy = (UNIT_SIZE(un) + 2) / 2;
+            break;
+        case FORMATION_COLUMN:
+            // Adjust for column formation
+            dx = (UNIT_SIZE(un) + 1) / 2;
+            dy = (UNIT_SIZE(un) + 4) / 2;
+            break;
+        case FORMATION_PHALANX:
+            // Adjust for phalanx formation
+            dx = (UNIT_SIZE(un) + 2) / 2;
+            dy = (UNIT_SIZE(un) + 1) / 2;
+            break;
+    }
+
+    if (local_bfs.loc_width > un->number_combatants) {
+        local_bfs.loc_width = un->number_combatants;
+    }
+
+    NA_ASSERT(local_bfs.loc_width, "width is zero");
+
+    loc_height = (un->number_combatants + local_bfs.loc_width - (un->number_combatants % local_bfs.loc_width)) / local_bfs.loc_width;
+
+    if ((loc_order & 1) == 1) {
+        if (dx == dy) {
+            dx += 1;
+            dy += 1;
+        } else {
+            dx = dy;
+        }
+    }
+
+    vect2_populate(&local_bfs.dpx, (facing.y * dx), (facing.x * dx));
+    vect2_populate(&local_bfs.dpy, (facing.x * dy), (facing.y * dy));
+
+    dx = (local_bfs.loc_width * dx);
+    dy = (loc_height * dy);
+
+    local_bfs.edgex = un->average[0] - (((facing.y * dx) + (facing.x * dy)) >> 10);
+    local_bfs.edgey = un->average[1] - (((facing.x * dx) - (facing.y * dy)) >> 10);
+
+    combatant_loop(&combatant_fill, un, gvar, (void *)&local_bfs);
+    battle_area(un);
+}
+```
+
+### 4. **engine.c**
+   - Add logic to allow units to change formations during the battle based on circumstances (e.g., when under attack, when regrouping, etc.).
+
+```c
+// Add a function to change formation
+void engine_change_formation(n_unit *un, n_formation new_formation) {
+    if (un->formation != new_formation) {
+        un->formation = new_formation;
+        // Reinitialize the unit's position based on the new formation
+        battle_fill(un, &game_vars);
+    }
+}
+
+// Example usage in engine_cycle
+void engine_cycle(void) {
+    battle_loop(&battle_move, units, number_units, &game_vars);
+    battle_loop(&battle_declare, units, number_units, &game_vars);
+    battle_loop(&battle_attack, units, number_units, &game_vars);
+    battle_loop(&battle_remove_dead, units, number_units, NOTHING);
+
+    // Example: Change formation if under attack
+    for (n_uint i = 0; i < number_units; i++) {
+        if (units[i].unit_attacking != NOTHING) {
+            engine_change_formation(&units[i], FORMATION_PHALANX); // Change to phalanx when under attack
+        }
+    }
+
+    engine_count++;
+}
+```
+
+### Summary of Changes:
+- **battle.h**: Added an enumeration for formations and updated the `n_type` and `n_unit` structs to include formation.
+- **misc.c**: Updated the JSON parsing logic to include formation and transfer it from unit type to unit.
+- **battle.c**: Updated the `battle_fill` function to handle different formations when placing units on the board.
+- **engine.c**: Added logic to allow units to change formations during the battle based on circumstances.
+
+These changes allow units to have different formations (e.g., rectangle, triangle, skirmish, wedge, column, phalanx) and adjust their positions accordingly. Units can also change formations dynamically during the battle based on their circumstances.
