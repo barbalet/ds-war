@@ -152,6 +152,7 @@ void combatant_fill(n_combatant *comb, n_general_variables *gvar, void *values) 
 /**
  * Fills the battle board with combatants from a unit.
  */
+// Update battle_fill to handle formations
 void battle_fill(n_unit *un, n_general_variables *gvar) {
     battle_fill_struct local_bfs;
     n_int dx = (UNIT_SIZE(un) + 2) / 2;
@@ -169,6 +170,38 @@ void battle_fill(n_unit *un, n_general_variables *gvar) {
     local_bfs.py = (n_vect2){0, 0};
 
     vect2_direction(&facing, loc_angle, 16);
+
+    // Adjust formation based on unit type
+    switch (un->formation) {
+        case FORMATION_RECTANGLE:
+            // Default rectangle formation
+            break;
+        case FORMATION_TRIANGLE:
+            // Adjust for triangle formation
+            dx = (UNIT_SIZE(un) + 1) / 2;
+            dy = (UNIT_SIZE(un) + 1) / 2;
+            break;
+        case FORMATION_SKIRMISH:
+            // Adjust for skirmish formation
+            dx = (UNIT_SIZE(un) + 3) / 2;
+            dy = (UNIT_SIZE(un) + 3) / 2;
+            break;
+        case FORMATION_WEDGE:
+            // Adjust for wedge formation
+            dx = (UNIT_SIZE(un) + 2) / 2;
+            dy = (UNIT_SIZE(un) + 2) / 2;
+            break;
+        case FORMATION_COLUMN:
+            // Adjust for column formation
+            dx = (UNIT_SIZE(un) + 1) / 2;
+            dy = (UNIT_SIZE(un) + 4) / 2;
+            break;
+        case FORMATION_PHALANX:
+            // Adjust for phalanx formation
+            dx = (UNIT_SIZE(un) + 2) / 2;
+            dy = (UNIT_SIZE(un) + 1) / 2;
+            break;
+    }
 
     if (local_bfs.loc_width > un->number_combatants) {
         local_bfs.loc_width = un->number_combatants;
@@ -430,7 +463,7 @@ static void combatant_move(n_combatant *comb, n_general_variables *gvar, void *v
             vect2_copy(&comb->location, &temp_location);
         }
     }
-
+    
     comb->direction_facing = (n_byte)local_facing;
     comb->speed_current = (n_byte)local_speed;
 }

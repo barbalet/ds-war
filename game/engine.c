@@ -64,7 +64,8 @@ const n_string_block json_file_string =
             "\"stature\":4,"
             "\"leadership\":2,"
             "\"wounds_per_combatant\":3,"
-            "\"type_id\":0"
+            "\"type_id\":0,"
+            "\"formation\":3"
         "},"
         "{"
             "\"defence\":2,"
@@ -80,7 +81,8 @@ const n_string_block json_file_string =
             "\"stature\":1,"
             "\"leadership\":2,"
             "\"wounds_per_combatant\":2,"
-            "\"type_id\":1"
+            "\"type_id\":1,"
+            "\"formation\":2"
         "},"
         "{"
             "\"defence\":4,"
@@ -96,7 +98,8 @@ const n_string_block json_file_string =
             "\"stature\":2,"
             "\"leadership\":4,"
             "\"wounds_per_combatant\":3,"
-            "\"type_id\":2"
+            "\"type_id\":2,"
+            "\"formation\":1"
         "},"
         "{"
             "\"defence\":2,"
@@ -112,7 +115,8 @@ const n_string_block json_file_string =
             "\"stature\":2,"
             "\"leadership\":3,"
             "\"wounds_per_combatant\":1,"
-            "\"type_id\":3"
+            "\"type_id\":3,"
+            "\"formation\":3"
         "}"
     "],"
     "\"units\":["
@@ -385,12 +389,29 @@ void engine_scorecard(void) {
     printf("random (%hu, %hu), %ld\n", game_vars.random0, game_vars.random1, engine_count);
 }
 
-// Function to run a game cycle
+// Add a function to change formation
+void engine_change_formation(n_unit *un, n_formation new_formation) {
+    if (un->formation != new_formation) {
+        un->formation = new_formation;
+        // Reinitialize the unit's position based on the new formation
+        battle_fill(un, &game_vars);
+        printf("Unit %d: Changing formation to %d\n", un->alignment, new_formation);
+    }
+}
+
+// Example usage in engine_cycle
 void engine_cycle(void) {
     battle_loop(&battle_move, units, number_units, &game_vars);
     battle_loop(&battle_declare, units, number_units, &game_vars);
     battle_loop(&battle_attack, units, number_units, &game_vars);
     battle_loop(&battle_remove_dead, units, number_units, NOTHING);
+
+    // Example: Change formation if under attack
+    for (n_uint i = 0; i < number_units; i++) {
+        if (units[i].unit_attacking != NOTHING) {
+            engine_change_formation(&units[i], FORMATION_PHALANX); // Change to phalanx when under attack
+        }
+    }
 
     engine_count++;
 }

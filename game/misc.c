@@ -70,6 +70,7 @@ static n_object *obj_unit_type(n_type *values) {
     object_number(return_object, "leadership", values->leadership);
     object_number(return_object, "wounds_per_combatant", values->wounds_per_combatant);
     object_number(return_object, "type_id", values->points_per_combatant);
+    object_number(return_object, "formation", values->formation); // Add formation
     return return_object;
 }
 
@@ -139,6 +140,7 @@ n_file *engine_conditions_file(n_constant_string file_name) {
     return file_json;
 }
 
+// Update engine_conditions to transfer formation from type to unit
 n_int engine_conditions(n_file *file_json) {
     if (file_json == 0L) {
         return SHOW_ERROR("Read file failed");
@@ -205,6 +207,9 @@ n_int engine_conditions(n_file *file_json) {
                     }
                     if (obj_contains_number(obj_follow, "type_id", &value)) {
                         current_type->points_per_combatant = value;
+                    }
+                    if (obj_contains_number(obj_follow, "formation", &value)) {
+                        current_type->formation = (n_formation)value;
                     }
                     (void)mem_use(sizeof(n_type));
                     number_types++;
@@ -284,6 +289,10 @@ n_int engine_conditions(n_file *file_json) {
         while (loop < number_units) {
             n_byte2 local_combatants = units[loop].number_combatants;
             units[loop].unit_type = &types[resolve[units[loop].morale]];
+            units[loop].formation = types[resolve[units[loop].morale]].formation; // Ensure formation is set
+            
+            printf("Unit %d: Formation = %d\n", loop, units[loop].formation);
+            
             units[loop].morale = 255;
             units[loop].number_living = local_combatants;
             units[loop].combatants = (n_combatant *)mem_use(sizeof(n_combatant) * local_combatants);
