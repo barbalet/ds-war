@@ -395,6 +395,7 @@ void engine_change_formation(n_unit *un, n_formation new_formation) {
         un->formation = new_formation;
         // Reinitialize the unit's position based on the new formation
         battle_fill(un, &game_vars);
+        printf("Unit %d: Changing formation to %d\n", un->alignment, new_formation);
     }
 }
 

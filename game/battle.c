@@ -463,7 +463,7 @@ static void combatant_move(n_combatant *comb, n_general_variables *gvar, void *v
             vect2_copy(&comb->location, &temp_location);
         }
     }
-
+    
     comb->direction_facing = (n_byte)local_facing;
     comb->speed_current = (n_byte)local_speed;
 }

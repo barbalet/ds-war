@@ -289,11 +289,13 @@ n_int engine_conditions(n_file *file_json) {
         while (loop < number_units) {
             n_byte2 local_combatants = units[loop].number_combatants;
             units[loop].unit_type = &types[resolve[units[loop].morale]];
+            units[loop].formation = types[resolve[units[loop].morale]].formation; // Ensure formation is set
+            
+            printf("Unit %d: Formation = %d\n", loop, units[loop].formation);
+            
             units[loop].morale = 255;
             units[loop].number_living = local_combatants;
             units[loop].combatants = (n_combatant *)mem_use(sizeof(n_combatant) * local_combatants);
-            units[loop].formation = types[resolve[units[loop].morale]].formation; // Transfer formation to unit
-
             check_alignment[(units[loop].alignment) & 1]++;
             loop++;
         }
