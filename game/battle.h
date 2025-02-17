@@ -72,50 +72,61 @@ n_combatant;
 #define	UNIT_SIZE(un)		  ((GET_TYPE(un)->stature) >> 1)
 #define	UNIT_ORDER(un)		  ((GET_TYPE(un)->stature) &  1)
 
+typedef enum {
+    FORMATION_RECTANGLE = 1,
+    FORMATION_TRIANGLE = 2,
+    FORMATION_SKIRMISH = 3,
+    FORMATION_WEDGE = 4,
+    FORMATION_COLUMN = 5,
+    FORMATION_PHALANX = 6
+} n_formation;
+
+// Add formation to the n_type struct
 typedef struct n_type {
-	n_byte  defence;
-	n_byte  melee_attack;
-	n_byte  melee_damage;
-	n_byte  melee_armpie;
+    n_byte  defence;
+    n_byte  melee_attack;
+    n_byte  melee_damage;
+    n_byte  melee_armpie;
 
-	n_byte  missile_attack;
-	n_byte  missile_damage;
-	n_byte  missile_armpie;
-	n_byte  missile_rate;
+    n_byte  missile_attack;
+    n_byte  missile_damage;
+    n_byte  missile_armpie;
+    n_byte  missile_rate;
 
-	n_byte2 missile_range;
-	n_byte  speed_maximum;
-	n_byte  stature;
-	n_byte  leadership;
+    n_byte2 missile_range;
+    n_byte  speed_maximum;
+    n_byte  stature;
+    n_byte  leadership;
 
-	n_byte  wounds_per_combatant;
-	n_byte  points_per_combatant;
-}
-n_type;
+    n_byte  wounds_per_combatant;
+    n_byte  points_per_combatant;
+    n_formation formation; // Add formation type
+} n_type;
 
+// Add formation to the n_unit struct
 typedef struct n_unit {
-	n_byte  morale;
-	n_byte  angle;
+    n_byte  morale;
+    n_byte  angle;
 
-	n_byte2 average[2];
+    n_byte2 average[2];
 
-	n_byte2 width;
-	n_byte2 number_combatants;
+    n_byte2 width;
+    n_byte2 number_combatants;
 
-	n_byte  alignment;
-	n_byte  missile_number;
+    n_byte  alignment;
+    n_byte  missile_number;
 
-	n_byte  missile_timer;
-	n_byte2 number_living;
+    n_byte  missile_timer;
+    n_byte2 number_living;
     
     n_area2 area;
     n_byte  selected;
     
-	void *unit_type;
-	void *combatants;
-	void *unit_attacking;
-}
-n_unit;
+    void *unit_type;
+    void *combatants;
+    void *unit_attacking;
+    n_formation formation; // Add formation type
+} n_unit;
 
 
 typedef struct n_general_variables {
