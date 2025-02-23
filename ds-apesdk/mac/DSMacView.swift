@@ -39,21 +39,9 @@ import Cocoa
 
 class DSMacView: NSView {
     
-//    var shared: DSShared?
     var localWindow: NSWindow?
     var returned_value: shared_cycle_state
-    
-    public override init(frame frameRect: NSRect) {
-        returned_value = SHARED_CYCLE_OK
-        super.init(frame: frameRect)
-
-        let localWindow:NSWindow? = self.window
-        guard (self.window != nil) else {
-            return
-        }
-        
-        self.localWindow = localWindow
-    }
+    var indentification: Int = 0
     
     func start() -> Bool {
         let shared_response = shared_init(0, UInt.random(in: 0 ..< 4294967295))
@@ -63,11 +51,7 @@ class DSMacView: NSView {
         return true
     }
     
-    
-    public required init?(coder: NSCoder) {
-        returned_value = SHARED_CYCLE_OK
-        super.init(coder: coder)
-                
+    func startup() {
         NSLog("Starting up")
                 
         let increments: NSSize = NSSize(width: 4, height: 4)
@@ -86,6 +70,20 @@ class DSMacView: NSView {
         }
     }
     
+    public override init(frame frameRect: NSRect) {
+        returned_value = SHARED_CYCLE_OK
+        super.init(frame: frameRect)
+
+        startup()
+    }
+
+    public required init?(coder: NSCoder) {
+        returned_value = SHARED_CYCLE_OK
+        super.init(coder: coder)
+                
+        startup()
+    }
+       
     func blitCode(dim_x: size_t, dim_y: size_t) {
         let optionalContext = NSGraphicsContext.current?.cgContext
         if let context = optionalContext {
